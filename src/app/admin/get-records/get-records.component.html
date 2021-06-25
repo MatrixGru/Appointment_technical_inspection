@@ -1,0 +1,35 @@
+<div style="width: 80%">
+  <div class="content">
+    <div class="row">
+      <label class="my-1 mr-2" for="typeRecords">Тип записей</label>
+      <select class="custom-select mb-2 mr-sm-2" id="typeRecords" (change)="onChange($event)">
+        <option [selected]="selectedFilter === 0" value="0">Все записи...</option>
+        <option [selected]="selectedFilter === 1" value="1">Новые</option>
+        <option [selected]="selectedFilter === 2" value="2">Прошедшие</option>
+        <option [selected]="selectedFilter === 3" value="3">Сегодня</option>
+      </select>
+      <label class="my-1 mr-2" for="search">Поиск(ФИО, Email, Телефон, Марка, Описание)</label>
+      <input type="text" class="form-control mb-2 mr-sm-2" id="search" placeholder="Поиск" (keyup)="searchInCurrentData($event)">
+      <div class="form-group justify-content-center align-content-center">
+      <mat-form-field appearance="fill">
+        <mat-label>Интервал дат</mat-label>
+        <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
+          <input matStartDate formControlName="start" placeholder="Start date">
+          <input matEndDate formControlName="end" placeholder="End date">
+        </mat-date-range-input>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+        <mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')">Ошибка начала</mat-error>
+        <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Ошибка окончания</mat-error>
+      </mat-form-field>
+          <button class="btn btn-danger" (click)="clearDatePicker(picker)"> Сброс периода</button>
+      </div>
+    </div>
+    <app-out-records [records]="filterRecords(records)" *ngIf="records"></app-out-records>
+  </div>
+
+<a class="btn btn-info" style="cursor: pointer" (click)="exportexcel()">
+  Экспорт в Excels
+</a>
+
+</div>

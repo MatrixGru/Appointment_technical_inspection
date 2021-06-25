@@ -1,0 +1,12 @@
+<mat-radio-group aria-label="Выберите время записи" (change)="selectedTime($event)" [(ngModel)]="value">
+  <mat-radio-button value="" checked>Время не выбрано</mat-radio-button>
+  <div *ngIf="changeDate">
+    <div *ngFor="let time of times; let i = index">
+        <mat-radio-button [disabled]="excludeTimes.indexOf(time) !== -1" value="{{ time.toString() }}">c {{ time }}:00 - {{ (time * 1) + 1 }}:00</mat-radio-button>
+    </div>
+  </div>
+  <div *ngIf="!changeDate" class="alert alert-danger">
+    На выбранную дату время не доступно.
+    Выберите другую дату.
+  </div>
+</mat-radio-group>

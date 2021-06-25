@@ -1,0 +1,28 @@
+<div class="section-1-container section-container" *ngIf="params.fio">
+  <div class="container">
+    <div class="row">
+      <div class="col section-1 section-description">
+        <h1>Запись на ТО успешно выполнена</h1>
+        <div class="divider-1"><span></span></div>
+        <p>Вы записаны на посещение на ТО:</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-10 offset-1 col-lg-8 offset-lg-2 div-wrapper d-flex justify-content-center align-items-center">
+
+        <div class="div-to-align">
+          <ul>
+            <li> ФИО: {{ params.fio}} </li>
+            <li> Телефон: {{ params.phone}} </li>
+            <li> Email: {{ params.email}} </li>
+            <li> Категория: {{ params.category}} </li>
+            <li> Марка: {{ params.mark}} </li>
+            <li> Дата: {{ params.datex | localeDateString }} </li>
+            <li> Время: {{ params.time}} </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

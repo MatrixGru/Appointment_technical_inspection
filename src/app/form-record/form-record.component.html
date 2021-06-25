@@ -1,0 +1,61 @@
+  <form [formGroup]="appoitmentForm" (ngSubmit)="onSubmit(appoitmentForm.value)">
+    <div class="form-group">
+      <input id="fio" type="text" formControlName="fio"/>
+      <label for="fio" class="control-label">
+        ФИО<span class="red">*</span>: </label><i class="bar"></i>
+      <div class="payment-card__error" *ngIf="isControlInvalid('fio', submitValidate)">Введите имя</div>
+    </div>
+    <div class="form-group">
+      <input id="phone" type="text" formControlName="phone"/>
+      <label for="phone" class="control-label">
+        Телефон<span class="red">*</span>:</label><i class="bar"></i>
+      <div class="payment-card__error" *ngIf="isControlInvalid('phone', submitValidate)">Введите телефон</div>
+    </div>
+    <div class="form-group">
+      <input id="email" type="text" formControlName="email"/>
+      <label for="email" class="control-label">
+        Email<span class="red">*</span>:</label><i class="bar"></i>
+      <div class="payment-card__error" *ngIf="isControlInvalid('email', submitValidate)">Введите email</div>
+    </div>
+    <div class="form-group">
+      <select id="category" formControlName="category">
+        <option value=""></option>
+        <option value="M2">M2</option>
+        <option value="M3">M3</option>
+      </select>
+      <label  for="category" class="control-label">
+        Категория ТС<span class="red">*</span></label><i class="bar"></i>
+      <div class="payment-card__error" *ngIf="isControlInvalid('category', submitValidate)">Выберите категорию</div>
+    </div>
+    <div class="form-group">
+      <input id="mark" type="text" formControlName="mark" placeholder="Марка ТС (Модель)"/>
+      <label for="mark" class="control-label">
+        Марка (модель) ТС<span class="red">*</span></label><i class="bar"></i>
+      <div class="payment-card__error" *ngIf="isControlInvalid('mark', submitValidate)">Введите марку ТС</div>
+    </div>
+    <div class="form-group">
+      <p>Вы выбрали дату записи: <span [innerHTML]="changeDate | date:'dd/MM/YYYY'"></span> </p>
+      <input id="datex" type="text" formControlName="datex" [value]="changeDate | date:'dd/MM/YYYY'" style="display: none"/>
+      <label for="datex" class="control-label">
+        Выбранная дата<span class="red">*</span></label><i class="bar"></i>
+      <div class="payment-card__error" *ngIf="isControlInvalid('datex', submitValidate)">Веберите в календаре необходимую дату</div>
+    </div>
+    <div class="form-group">
+      <p>Вы выбрали время записи: <span [innerHTML]="changeTime"></span> </p>
+      <input id="time" type="text" formControlName="time" [value]="changeTime" style="display: none"/>
+      <label for="time" class="control-label" >
+        Выбранное время<span class="red">*</span></label><i class="bar"></i>
+      <div class="payment-card__error" *ngIf="isControlInvalid('time', submitValidate)">Укажите желаемое время</div>
+    </div>
+    <div class="button-container">
+      <button type="submit" class="button"><span>Записаться</span></button>
+    </div>
+
+    <div *ngIf="errorMessage" class="col-12 error-block mt-2">
+      <div class="alert alert-danger">{{ errorMessage }}</div>
+    </div>
+    <div *ngIf="successMessage" class="col-12 alert-success mt-2">
+      <div class="alert alert-success">{{ successMessage }}</div>
+    </div>
+  </form>
+

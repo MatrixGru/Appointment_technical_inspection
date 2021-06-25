@@ -1,0 +1,36 @@
+<div
+  class="header-wrapper d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow"
+>
+  <h5 class="company-name-wrapper my-0 mr-md-auto font-weight-normal">
+    <a [routerLink]="['/']" class="text-dark">
+      <img src="assets/img/logo-new1.png"  class="company-logo" />
+    </a>
+  </h5>
+  <nav class="menu-wrapper my-2 my-md-0 mr-md-3">
+    <div class="d-inline-block">
+      <a
+        class="p-2 text-dark align-middle menu-link btn-link"
+        data-menu="home"
+        routerLinkActive="active"
+        [routerLink]="['/']"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >Запись на ТО</a
+      >
+    </div>
+  </nav>
+  <nav class="before-login-link-wrapper my-0" *ngIf="!authService.isLoggedIn">
+    <a class="btn btn-outline-success mr-2 link-login" routerLinkActive="active" [routerLink]="['/login']">Вход</a>
+  </nav>
+  <nav class="after-login-link-wrapper my-0" *ngIf="authService.isLoggedIn">
+     <a class="btn btn-link" routerLinkActive="active" [routerLink]="['/admin']" >Панель управления</a>
+      <span class="text-dark mr-2 font-weight-bold text-username"
+      >{{ authService?.userData?.displayName }} </span
+      >
+    <a class="btn btn-link link-logout" routerLinkActive="active" (click)="authService.SignOut()">Выход</a>
+  </nav>
+</div>
+<div class="container">
+  <div class="main-container">
+    <router-outlet></router-outlet>
+  </div>
+</div>

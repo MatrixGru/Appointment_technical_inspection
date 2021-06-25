@@ -1,0 +1,22 @@
+<h1>Панель управления</h1>
+  <mat-tab-group>
+    <mat-tab label="Список записей">
+      <div class="innerBlockMat">
+        <app-get-records [records] = "records" *ngIf="isAdmin"></app-get-records>
+      </div>
+    </mat-tab>
+    <mat-tab label="Список нерабочих дней">
+      <div class="innerBlockMat">
+        <app-not-work-days [records] = "closedDays" *ngIf="isAdmin"></app-not-work-days>
+      </div>
+    </mat-tab>
+    <mat-tab label="Список рабочих дней">
+      <div class="innerBlockMat">
+        <app-work-days [records] = "openDays" *ngIf="isAdmin"></app-work-days>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+
+<div *ngIf="!isAdmin">
+  Вы не являетесь членом группы адимнистраторов или не авторизованны.
+</div>

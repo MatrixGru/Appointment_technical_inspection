@@ -1,0 +1,6 @@
+  <mat-calendar
+    [minDate]="currentDay"
+    [dateFilter]="filterDates"
+    [selected]="selectedDate"
+    (selectedChange)="onSelect($event)">
+  </mat-calendar>

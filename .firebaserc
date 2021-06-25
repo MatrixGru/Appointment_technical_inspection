@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "auto-service-bd568": {
+      "hosting": {
+        "Client": [
+          "auto-service-bd568"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "auto-service-bd568"
+  }
+}
