@@ -37,7 +37,7 @@ export class FormRecordComponent implements OnInit {
 
     this.appoitmentForm = this.fb.group({
       fio: ['', [Validators.required, Validators.minLength(3)]],
-      phone: ['', [Validators.required]],
+      phone: ['', [Validators.pattern(/^\(\d{3}\)\s\d{3}-\d{4}$/), Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       category: ['', [Validators.required]],
       mark: ['', [Validators.required]],

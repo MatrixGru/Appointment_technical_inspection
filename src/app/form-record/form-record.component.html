@@ -6,8 +6,9 @@
       <div class="payment-card__error" *ngIf="isControlInvalid('fio', submitValidate)">Введите имя</div>
     </div>
     <div class="form-group">
-      <input id="phone" type="text" formControlName="phone"/>
-      <label for="phone" class="control-label">
+      <input id="tel" class="form-control" phoneMask [preValue]="appoitmentForm.value.phone"  [phoneControl]="appoitmentForm.controls['phone']" formControlName="phone" maxlength="14"
+             [ngClass]="(appoitmentForm.controls['phone'].invalid)? 'errmsg' : 'validmsg'" />
+      <label for="tel" class="control-label">
         Телефон<span class="red">*</span>:</label><i class="bar"></i>
       <div class="payment-card__error" *ngIf="isControlInvalid('phone', submitValidate)">Введите телефон</div>
     </div>

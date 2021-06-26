@@ -36,6 +36,7 @@
     "ngx-pagination": "^5.0.0",
     "nodemailer": "^6.6.0",
     "rxjs": "~6.6.0",
+    "rxjs-compat": "^6.6.7",
     "tslib": "^2.0.0",
     "xlsx": "^0.16.9",
     "zone.js": "~0.11.4"

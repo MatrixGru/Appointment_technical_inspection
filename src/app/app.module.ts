@@ -36,6 +36,7 @@ import { WorkDaysComponent } from './admin/work-days/work-days.component';
 import {MatInputModule} from '@angular/material/input';
 import {GlobalService} from './model/global.service';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
+import { PhoneMaskDirective } from './phone-mask.directive';
 
 
 export const MY_FORMATS = {
@@ -73,7 +74,8 @@ const appRoutes: Routes = [
     GetRecordsComponent,
     OutRecordsComponent,
     NotWorkDaysComponent,
-    WorkDaysComponent
+    WorkDaysComponent,
+    PhoneMaskDirective
   ],
   imports: [
     BrowserModule,
