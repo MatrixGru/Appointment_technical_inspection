@@ -101,7 +101,6 @@ export class AppointmentComponent implements OnInit {
     this.changeDate = event;
     this.resetTime = true;
     this.setBusyTimes(Number(this.convertDate(event)));
-
   }
 
   // Фиксируем выбранное время
@@ -140,7 +139,6 @@ export class AppointmentComponent implements OnInit {
     if (this.excludeTimes.indexOf(this.changeTime) !== -1) {
       this.resetTime = true;
     }
-    console.log('excludeTimes: ', this.excludeTimes);
   }
 
   // Конвертиция даты в unix

@@ -63,9 +63,9 @@ export class CalendarComponent implements OnInit {
     }
 
     // Если текущий день выпадает на выходные, то снимаем активный день
-    if (this.currentDay.getDay() === 0 || this.currentDay.getDay() === 6) {
-      this.changeDate.emit('');
-    }
+    //if ((this.currentDay.getDay() === 0 || this.currentDay.getDay() === 6)) {
+     // this.changeDate.emit('');
+    //}
 
     // Делаем выходные (суббота, воскресенье не доступными)
     const day = date.getDay();
